@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <>
       <Banner
-        title={airingAnime?.title ?? ""}
+        title={airingAnime?.titles[0].title ?? ""}
         genres={airingAnime?.genres ?? []}
         description={airingAnime?.synopsis ?? ""}
         imgUrl={airingAnime?.trailer.images.maximum_image_url ?? ""}

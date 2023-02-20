@@ -33,10 +33,6 @@ export type AnimeSearchDataType = {
   trailer: TrailerType;
   approved: boolean;
   titles: TitleType[];
-  title: string;
-  title_english: string;
-  title_japanese: string;
-  title_synonyms: string[];
   type: string;
   source: string;
   episodes: number;
@@ -68,6 +64,14 @@ export type AnimeSearchDataType = {
   explicit_genres: AnimeInfoType[];
   themes: AnimeInfoType[];
   demographics: AnimeInfoType[];
+  /** @deprecated use titles field instead */
+  title: string;
+  /** @deprecated use titles field instead */
+  title_english: string;
+  /** @deprecated use titles field instead */
+  title_japanese: string;
+  /** @deprecated use titles field instead */
+  title_synonyms: string[];
 };
 
 export type ImagesType = {
