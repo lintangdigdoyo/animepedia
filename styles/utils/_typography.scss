@@ -1,0 +1,66 @@
+/**
+ * Font Faces
+ */
+
+@font-face {
+  src: local("Roboto Regular"), local("roboto-regular"), url("#{$font_path}/Roboto-Regular.ttf");
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  src: local("Roboto Medium"), local("roboto-medium"), url("#{$font_path}/Roboto-Medium.ttf");
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  src: local("Roboto Bold"), local("roboto-bold"), url("#{$font_path}/Roboto-Bold.ttf");
+  font-family: "Roboto";
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  src: local("Unbounded Bold"), local("unbounded-bold"), url("#{$font_path}/Unbounded-Bold.ttf");
+  font-family: "Unbounded";
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+/**
+ * Mixins
+ */
+
+@mixin fontStyles($font-weight, $font_size, $line_height) {
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font_size + 0px;
+  line-height: $line_height + 0px;
+  margin: 0;
+}
+
+@mixin fontPrimary($font-weight, $font_size, $line_height) {
+  @include fontStyles($font_weight, $font_size, $line_height);
+  font-family: "Roboto", sans-serif;
+}
+
+@mixin fontSecondary($font-weight, $font_size, $line_height) {
+  @include fontStyles($font_weight, $font_size, $line_height);
+  font-family: "Unbounded", sans-serif;
+}
+
+@mixin typographyBuilder($type: primary, $font_weight: 400, $font_size: 16, $line_height: 22) {
+  @if $type == primary {
+    @include fontPrimary($font_weight, $font_size, $line_height);
+  } 
+  @else if $type == secondary {
+    @include fontSecondary($font_weight, $font_size, $line_height);
+  }
+}

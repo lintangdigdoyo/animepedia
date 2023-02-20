@@ -1,6 +1,7 @@
 @import "./utils/variables";
 
 body {
+  @include typographyBuilder();
   color: $color_text_1;
   background-color: $color_background_primary;
   margin: 0;
