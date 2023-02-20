@@ -1,13 +1,17 @@
+import { GetServerSideProps } from "next";
+
 import style from "styles/components/Home.module.scss";
 import { useGetAnimeSearchQuery } from "services/hooks";
-import useMediaQuery from "utils/hooks/useMediaQuery";
+import { MOBILE_USER_AGENT } from "utils/constants";
 import { ANIME_LIST_PARAMS } from "components/AnimeList/constants";
 import Banner from "components/Banner";
 import AnimeList from "components/AnimeList";
 
-const Home = () => {
-  const isMobile = useMediaQuery("(max-width: 640px");
+interface HomeProps {
+  deviceType: "mobile" | "desktop";
+}
 
+const Home = ({ deviceType }: HomeProps) => {
   const { data: dataAiring, isLoading: isLoadingAiring } =
     useGetAnimeSearchQuery({
       page: 1,
@@ -35,13 +39,24 @@ const Home = () => {
               title={item.title}
               animeSearchParams={item.params}
               searchPlaceholder={item.placeholder}
-              isMobile={isMobile}
+              isMobile={deviceType === "mobile"}
             />
           ))}
         </div>
       </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const UA = req.headers["user-agent"];
+  const isMobile = Boolean(UA?.match(MOBILE_USER_AGENT));
+
+  return {
+    props: {
+      deviceType: isMobile ? "mobile" : "desktop",
+    },
+  };
 };
 
 export default Home;

@@ -22,7 +22,7 @@ const AnimeList = ({
   title,
   animeSearchParams,
   searchPlaceholder,
-  isMobile = false,
+  isMobile,
 }: AnimeListProps) => {
   const { data, isLoading, fetchNextPage } =
     useGetAnimeSearchQuery(animeSearchParams);
