@@ -4,11 +4,12 @@ import style from "styles/components/Home.module.scss";
 import { useGetAnimeSearchQuery } from "services/hooks";
 
 const Home = () => {
-  const { data: dataAiring } = useGetAnimeSearchQuery({
-    page: 1,
-    limit: 1,
-    status: "airing",
-  });
+  const { data: dataAiring, isLoading: isLoadingAiring } =
+    useGetAnimeSearchQuery({
+      page: 1,
+      limit: 1,
+      status: "airing",
+    });
 
   const airingAnime = dataAiring?.data[0];
 
@@ -20,6 +21,7 @@ const Home = () => {
         description={airingAnime?.synopsis ?? ""}
         imgUrl={airingAnime?.trailer.images.maximum_image_url ?? ""}
         buttonLabel="More Info"
+        isLoading={isLoadingAiring}
       />
       <div className={style.home__container}>
         <div className={style.home__listContainer}>

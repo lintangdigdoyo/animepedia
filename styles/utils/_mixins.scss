@@ -1,0 +1,7 @@
+/**
+  * Skeleton animation
+  */
+
+@mixin skeletonAnimation($duration: 1s) {
+  animation: skeleton-loading $duration linear infinite alternate;
+}

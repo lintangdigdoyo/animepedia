@@ -1,4 +1,5 @@
 import Image from "next/image";
+import classNames from "classnames";
 
 import style from "styles/components/Banner.module.scss";
 import Button from "components/Common/Button";
@@ -10,6 +11,7 @@ interface BannerProps {
   description: string;
   imgUrl: string;
   buttonLabel?: string;
+  isLoading?: boolean;
 }
 
 const Banner = ({
@@ -18,7 +20,17 @@ const Banner = ({
   description,
   imgUrl,
   buttonLabel,
+  isLoading,
 }: BannerProps) => {
+  if (isLoading) {
+    return (
+      <div
+        className={classNames(style.banner, style.banner__skeleton)}
+        data-testid="banner-skeleton"
+      />
+    );
+  }
+
   return (
     <div className={style.banner}>
       <div className={style.banner__content}>
