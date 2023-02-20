@@ -1,0 +1,82 @@
+@import "../utils/variables";
+
+.card {
+  max-height: 345px;
+  border-radius: 6px;
+  width: 240px;
+
+  &_scale {
+    transition: transform .2s linear;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+
+  &__imageContainer {
+    position: relative;
+    height: 210px;
+  }
+
+  &__image {
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+    object-position: top;
+  }
+
+  &__title {
+    @include typographyBuilder(primary, 500);
+    color: $color_black;
+    opacity: 0.9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  &__description {
+    @include typographyBuilder(primary, 400, 14);
+    color: $color_black;
+    opacity: 0.8;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__text {
+    @include typographyBuilder(primary, 500, 12);
+    color: $color_black;
+    opacity: 0.6;
+  }
+
+  &__content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: $color_text_1;
+    z-index: 5;
+    position: relative;
+    border-radius: 0 0 6px 6px;
+
+    &_center {
+      text-align: center;
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__pill {
+    @include typographyBuilder(primary, 500, 12);
+    background-color: $color_primary_light;
+    width: fit-content;
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+}
