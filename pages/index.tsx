@@ -1,10 +1,13 @@
-import AnimeList from "components/AnimeList";
-import Banner from "components/Banner";
 import style from "styles/components/Home.module.scss";
 import { useGetAnimeSearchQuery } from "services/hooks";
+import useMediaQuery from "utils/hooks/useMediaQuery";
 import { ANIME_LIST_PARAMS } from "components/AnimeList/constants";
+import Banner from "components/Banner";
+import AnimeList from "components/AnimeList";
 
 const Home = () => {
+  const isMobile = useMediaQuery("(max-width: 640px");
+
   const { data: dataAiring, isLoading: isLoadingAiring } =
     useGetAnimeSearchQuery({
       page: 1,
@@ -32,6 +35,7 @@ const Home = () => {
               title={item.title}
               animeSearchParams={item.params}
               searchPlaceholder={item.placeholder}
+              isMobile={isMobile}
             />
           ))}
         </div>

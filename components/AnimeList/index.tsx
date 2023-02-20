@@ -9,19 +9,23 @@ import { useGetAnimeSearchQuery } from "services/hooks";
 import { AnimeSearchParamsType } from "services/queries/types";
 import Carousel from "components/Common/Carousel";
 import AnimeItem from "./AnimeItem";
+import AnimeListSkeleton from "./AnimeListSkeleton";
 
 interface AnimeListProps {
   title: string;
   animeSearchParams: AnimeSearchParamsType;
   searchPlaceholder?: string;
+  isMobile?: boolean;
 }
 
 const AnimeList = ({
   title,
   animeSearchParams,
   searchPlaceholder,
+  isMobile = false,
 }: AnimeListProps) => {
-  const { data, fetchNextPage } = useGetAnimeSearchQuery(animeSearchParams);
+  const { data, isLoading, fetchNextPage } =
+    useGetAnimeSearchQuery(animeSearchParams);
 
   const handleSlideChange = async (swiper: Swiper) => {
     if (!swiper.isEnd || !data?.pagination.has_next_page) return;
@@ -30,6 +34,8 @@ const AnimeList = ({
       page: data.pagination.current_page + 1,
     });
   };
+
+  if (isLoading) return <AnimeListSkeleton totalCard={isMobile ? 1 : 5} />;
 
   return (
     <section className={styleList.list}>

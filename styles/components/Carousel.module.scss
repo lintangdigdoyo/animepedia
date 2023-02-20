@@ -1,9 +1,11 @@
+@import "../utils/variables";
+
 .carousel {
   height: 420px;
-  padding: 0 30px;
+  padding: 0 30px !important;
 
   &__item {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
