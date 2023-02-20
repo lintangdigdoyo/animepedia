@@ -1,0 +1,11 @@
+@import "../utils/variables";
+
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $color_primary;
+  color: $color_text_1;
+  outline: none;
+  @include typographyBuilder();
+  width: 100%;
+}

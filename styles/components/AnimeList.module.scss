@@ -25,4 +25,12 @@
       align-items: flex-start;
     }
   }
+
+  &__search {
+    width: 300px;
+
+    @media screen and (max-width: $breakpoints_max_md) {
+      width: 100%;
+    }
+  }
 }
