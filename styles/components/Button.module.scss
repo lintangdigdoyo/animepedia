@@ -1,0 +1,31 @@
+@import "../utils/variables";
+
+.button {
+  @include typographyBuilder(primary, 600, 16, 24);
+  height: 40px;
+  width: fit-content;
+  border-radius: 4px;
+  padding: 0px 24px;
+  cursor: pointer;
+  background-color: $color_text_1;
+  color: $color_primary_dark;
+  box-sizing: border-box;
+  transition: all .2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &:hover {
+    filter: brightness(85%);
+  }
+
+  &:active {
+    filter: brightness(65%);
+  }
+
+  &__outlined {
+    background: transparent;
+    border: 1px solid $color_text_1;
+    color: $color_text_1;
+  }
+}
