@@ -2,6 +2,7 @@ import AnimeList from "components/AnimeList";
 import Banner from "components/Banner";
 import style from "styles/components/Home.module.scss";
 import { useGetAnimeSearchQuery } from "services/hooks";
+import { ANIME_LIST_PARAMS } from "components/AnimeList/constants";
 
 const Home = () => {
   const { data: dataAiring, isLoading: isLoadingAiring } =
@@ -25,7 +26,14 @@ const Home = () => {
       />
       <div className={style.home__container}>
         <div className={style.home__listContainer}>
-          <AnimeList />
+          {ANIME_LIST_PARAMS.map((item, index) => (
+            <AnimeList
+              key={index}
+              title={item.title}
+              animeSearchParams={item.params}
+              searchPlaceholder={item.placeholder}
+            />
+          ))}
         </div>
       </div>
     </>

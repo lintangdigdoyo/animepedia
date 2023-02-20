@@ -8,4 +8,8 @@
   outline: none;
   @include typographyBuilder();
   width: 100%;
+  
+  &:focus {
+    border-bottom-color: $color_primary_light;
+  }
 }
