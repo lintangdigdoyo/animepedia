@@ -1,0 +1,28 @@
+@import "../utils/variables";
+
+.list {
+  position: relative;
+  margin-top: 36px;
+
+  &__title {
+    @include typographyBuilder(primary, 500, 20);
+    white-space: nowrap;
+  }
+
+  &__header {
+    display: flex;
+    padding: 0 30px;
+    top: -28px;
+    gap: 16px;
+    z-index: 10;
+    width: 100%;
+    align-items: center;
+    position: absolute;
+
+    @media screen and (max-width: $breakpoints_max_md) {
+      flex-direction: column;
+      position: relative;
+      align-items: flex-start;
+    }
+  }
+}
