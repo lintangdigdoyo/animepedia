@@ -22,14 +22,12 @@ const AnimeDetail = () => {
 
   return (
     <article className={style.detail}>
-      {dataAnime?.data?.trailer.embed_url && (
-        <Banner
-          title={dataAnime?.data?.titles[0].title ?? ""}
-          genres={dataAnime?.data?.genres ?? []}
-          imgUrl={dataAnime?.data?.trailer.images.maximum_image_url ?? ""}
-          isLoading={isLoading}
-        />
-      )}
+      <Banner
+        title={dataAnime?.data?.titles[0].title ?? ""}
+        genres={dataAnime?.data?.genres ?? []}
+        imgUrl={dataAnime?.data?.images.webp.large_image_url ?? ""}
+        isLoading={isLoading}
+      />
       <Section title="SYNOPSIS">
         <AnimeContent content={dataAnime?.data?.synopsis ?? ""} />
       </Section>
