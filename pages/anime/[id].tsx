@@ -5,7 +5,7 @@ import { dehydrate, QueryClient } from "@tanstack/react-query";
 import style from "styles/components/Detail.module.scss";
 import { useGetAnimeFullByIdQuery } from "services/hooks";
 import { QueryKeyEnum } from "services/types";
-import { getAnimeFullById, getAnimeStatistics } from "services/queries";
+import { getAnimeFullById } from "services/queries";
 import Banner from "components/Banner";
 import Section from "components/AnimeDetail/Section";
 import Video from "components/AnimeDetail/Video";
