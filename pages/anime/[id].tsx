@@ -35,7 +35,10 @@ const AnimeDetail = () => {
         <StreamingPlatform platforms={dataAnime?.data?.streaming ?? []} />
       </Section>
       <Section title="WATCH THE TRAILER">
-        <Video title="trailer" youtubeId="" />
+        <Video
+          title={dataAnime?.data?.titles[0].title ?? "trailer"}
+          youtubeId={dataAnime?.data?.trailer.youtube_id ?? ""}
+        />
       </Section>
       <Section>
         <AnimeStatistics />
