@@ -13,7 +13,7 @@ interface BannerProps {
   buttonLabel?: string;
   isLoading?: boolean;
   fullText?: boolean;
-  onClick?: () => void;
+  onClickButton?: () => void;
 }
 
 const Banner = ({
@@ -24,7 +24,7 @@ const Banner = ({
   buttonLabel,
   isLoading,
   fullText = false,
-  onClick,
+  onClickButton,
 }: BannerProps) => {
   if (isLoading) {
     return (
@@ -59,8 +59,8 @@ const Banner = ({
             {description}
           </p>
         )}
-        {onClick && (
-          <Button variant="outlined" onClick={onClick}>
+        {onClickButton && (
+          <Button variant="outlined" onClick={onClickButton}>
             {buttonLabel}
           </Button>
         )}

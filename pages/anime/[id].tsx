@@ -22,24 +22,30 @@ const AnimeDetail = () => {
 
   return (
     <article className={style.detail}>
-      <Banner
-        title={dataAnime?.data?.titles[0].title ?? ""}
-        genres={dataAnime?.data?.genres ?? []}
-        imgUrl={dataAnime?.data?.trailer.images.maximum_image_url ?? ""}
-        isLoading={isLoading}
-      />
+      {dataAnime?.data?.trailer.embed_url && (
+        <Banner
+          title={dataAnime?.data?.titles[0].title ?? ""}
+          genres={dataAnime?.data?.genres ?? []}
+          imgUrl={dataAnime?.data?.trailer.images.maximum_image_url ?? ""}
+          isLoading={isLoading}
+        />
+      )}
       <Section title="SYNOPSIS">
         <AnimeContent content={dataAnime?.data?.synopsis ?? ""} />
       </Section>
-      <Section>
-        <StreamingPlatform platforms={dataAnime?.data?.streaming ?? []} />
-      </Section>
-      <Section title="WATCH THE TRAILER">
-        <Video
-          title={dataAnime?.data?.titles[0].title ?? "trailer"}
-          youtubeId={dataAnime?.data?.trailer.youtube_id ?? ""}
-        />
-      </Section>
+      {dataAnime?.data?.streaming.length !== 0 && (
+        <Section>
+          <StreamingPlatform platforms={dataAnime?.data?.streaming ?? []} />
+        </Section>
+      )}
+      {dataAnime?.data?.trailer.embed_url && (
+        <Section title="WATCH THE TRAILER">
+          <Video
+            title={dataAnime?.data?.titles[0].title ?? "trailer"}
+            youtubeId={dataAnime?.data?.trailer.youtube_id ?? ""}
+          />
+        </Section>
+      )}
       <Section>
         <AnimeStatistics id={id} />
       </Section>

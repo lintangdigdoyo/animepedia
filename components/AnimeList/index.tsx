@@ -70,6 +70,7 @@ const AnimeList = ({
               className={styleCarousel.carousel__item}
             >
               <AnimeItem
+                id={anime.mal_id}
                 title={anime.titles[0].title}
                 description={anime.synopsis}
                 rating={(anime.score ?? 0) + "/10"}

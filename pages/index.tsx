@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
 
 import style from "styles/components/Home.module.scss";
 import { useGetAnimeSearchQuery } from "services/hooks";
@@ -12,6 +13,8 @@ interface HomeProps {
 }
 
 const Home = ({ deviceType }: HomeProps) => {
+  const router = useRouter();
+
   const { data: dataAiring, isLoading: isLoadingAiring } =
     useGetAnimeSearchQuery({
       page: 1,
@@ -20,6 +23,10 @@ const Home = ({ deviceType }: HomeProps) => {
     });
 
   const airingAnime = dataAiring?.data[0];
+
+  const handleClickBanner = () => {
+    router.push(`anime/${airingAnime?.mal_id}`);
+  };
 
   return (
     <>
@@ -30,6 +37,7 @@ const Home = ({ deviceType }: HomeProps) => {
         imgUrl={airingAnime?.trailer.images.maximum_image_url ?? ""}
         buttonLabel="More Info"
         isLoading={isLoadingAiring}
+        onClickButton={handleClickBanner}
       />
       <div className={style.home__container}>
         <div className={style.home__listContainer}>
