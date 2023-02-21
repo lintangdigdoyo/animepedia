@@ -62,9 +62,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     await queryClient.fetchQuery([QueryKeyEnum.ANIME, id], () =>
       getAnimeFullById(id)
     );
-    await queryClient.fetchQuery([QueryKeyEnum.STATISTICS, id], () =>
-      getAnimeStatistics(id)
-    );
 
     return {
       props: {
