@@ -1,0 +1,13 @@
+@import "../utils/variables";
+
+.home {
+  &__container {
+    margin: 30px 25px;
+  }
+
+  &__listContainer {
+    display: flex;
+    flex-direction: column; 
+    gap: 28px;
+  }
+}

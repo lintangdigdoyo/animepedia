@@ -1,0 +1,59 @@
+@import "../utils/variables";
+
+.banner {
+  position: relative;
+  height: 450px;
+
+  &__image {
+    object-fit: cover;
+    mask-image: linear-gradient(270deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 70%);
+    object-position: top;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    z-index: 3;
+    position: relative;
+    padding: 0 65% 0 60px;
+    width: 100%;
+    height: 100%;
+
+    @media screen and (max-width: $breakpoints_max_lg) {
+      padding-right: 25%;
+    }
+  }
+
+  &__title {
+    @include typographyBuilder(primary, 700, 24);
+  }
+
+  &__genresContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__genre {
+    @include typographyBuilder(primary, 400, 16, 22);
+    color: $color_text_3;
+  }
+
+  &__description {
+    @include typographyBuilder();
+    color: $color_text_2;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__skeleton {
+    @include skeletonAnimation();
+  }
+}

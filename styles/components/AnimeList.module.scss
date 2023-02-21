@@ -1,0 +1,61 @@
+@import "../utils/variables";
+
+.list {
+  position: relative;
+  margin-top: 36px;
+
+  &__title {
+    @include typographyBuilder(primary, 500, 20);
+    white-space: nowrap;
+  }
+
+  &__header {
+    display: flex;
+    padding: 0 30px;
+    top: -28px;
+    gap: 16px;
+    z-index: 10;
+    width: 100%;
+    align-items: center;
+    position: absolute;
+
+    @media screen and (max-width: $breakpoints_max_md) {
+      flex-direction: column;
+      position: relative;
+      align-items: flex-start;
+    }
+  }
+
+  &__search {
+    width: 300px;
+
+    @media screen and (max-width: $breakpoints_max_md) {
+      width: 100%;
+    }
+  }
+
+  &__skeletonContainer {
+    padding: 0 30px;
+    margin-top: 10px;
+  }
+
+  &__skeletonHeader {
+    @include skeletonAnimation();
+    width: 100%;
+    max-width: 240px;
+    height: 24px;
+  }
+
+  &__skeletonList {
+    display: flex;
+    gap: 8px; 
+    justify-content: space-between;
+  }
+  
+  &__skeletonCard {
+    @include skeletonAnimation();
+    margin-top: 25px;
+    height: 340px;
+    width: 100%;
+  }
+}
