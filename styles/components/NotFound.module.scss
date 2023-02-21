@@ -1,0 +1,22 @@
+@import "../utils/variables";
+
+.notFound {
+  background-color: $color_primary;
+  margin: 10% 20%;
+  padding: 48px 85px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  align-items: center;
+  gap: 24px;
+
+  &__heading {
+    @include typographyBuilder(primary, 700, 32, 34);
+    text-align: center;
+  }
+
+  &__text {
+    @include typographyBuilder();
+    text-align: center;
+  }
+}
