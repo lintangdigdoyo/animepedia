@@ -10,7 +10,7 @@ import Banner from "components/Banner";
 import Section from "components/AnimeDetail/Section";
 import Video from "components/AnimeDetail/Video";
 import AnimeCharacters from "components/AnimeDetail/AnimeCharacters";
-import AnimeBackground from "components/AnimeDetail/AnimeBackground";
+import AnimeContent from "components/AnimeDetail/AnimeContent";
 import StreamingPlatform from "components/AnimeDetail/StreamingPlatform";
 import AnimeStatistics from "components/AnimeDetail/AnimeStatistics";
 
@@ -18,20 +18,18 @@ const AnimeDetail = () => {
   const router = useRouter();
   const id = router.query.id?.toString() ?? "";
 
-  const { data: dataAnime, isLoading } = useGetAnimeFullByIdQuery(id, {
-    enabled: id !== "",
-  });
+  const { data: dataAnime, isLoading } = useGetAnimeFullByIdQuery(id);
 
   return (
     <article className={style.detail}>
       <Banner
-        title={dataAnime?.data.titles[0].title ?? ""}
-        genres={dataAnime?.data.genres ?? []}
-        imgUrl={dataAnime?.data.trailer.images.maximum_image_url ?? ""}
+        title={dataAnime?.data?.titles[0].title ?? ""}
+        genres={dataAnime?.data?.genres ?? []}
+        imgUrl={dataAnime?.data?.trailer.images.maximum_image_url ?? ""}
         isLoading={isLoading}
       />
       <Section title="Synopsis">
-        <AnimeBackground />
+        <AnimeContent />
       </Section>
       <Section>
         <StreamingPlatform />
@@ -53,15 +51,20 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const queryClient = new QueryClient();
   const id = query.id?.toString() ?? "";
 
-  await queryClient.prefetchQuery([QueryKeyEnum.ANIME, id], () =>
-    getAnimeFullById(id)
-  );
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
+  try {
+    await queryClient.fetchQuery([QueryKeyEnum.ANIME, id], () =>
+      getAnimeFullById(id)
+    );
+    return {
+      props: {
+        dehydratedState: dehydrate(queryClient),
+      },
+    };
+  } catch (err) {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default AnimeDetail;
