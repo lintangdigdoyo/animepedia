@@ -1,0 +1,9 @@
+@import "../utils/variables";
+
+.layout {
+  &__footer {
+    @include typographyBuilder(primary, 400, 14);
+    text-align: center;
+    padding: 22px 0;
+  }
+}
