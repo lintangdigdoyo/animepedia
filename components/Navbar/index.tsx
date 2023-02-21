@@ -8,7 +8,7 @@ const Navbar = () => {
       <nav className={style.nav}>
         <ul className={style.nav__list}>
           <li>
-            <Link className={style.nav__logo} href="/">
+            <Link className={style.nav__logo} href="/" data-testid="logo">
               AnimePedia
             </Link>
           </li>
