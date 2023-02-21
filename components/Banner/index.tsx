@@ -42,10 +42,16 @@ const Banner = ({
           [style.banner__content_fullText]: fullText,
         })}
       >
-        <h4 className={style.banner__title}>{title}</h4>
+        <h4 className={style.banner__title} data-testid="title">
+          {title}
+        </h4>
         <div className={style.banner__genresContainer}>
           {genres.map((genre) => (
-            <span key={genre.mal_id} className={style.banner__genre}>
+            <span
+              key={genre.mal_id}
+              className={style.banner__genre}
+              data-testid={`genre-${genre.mal_id}`}
+            >
               {genre.name}
             </span>
           ))}
@@ -55,12 +61,17 @@ const Banner = ({
             className={classNames(style.banner__description, {
               [style.banner__description_fullText]: fullText,
             })}
+            data-testid="description"
           >
             {description}
           </p>
         )}
         {onClickButton && (
-          <Button variant="outlined" onClick={onClickButton}>
+          <Button
+            variant="outlined"
+            onClick={onClickButton}
+            data-testid="banner-button"
+          >
             {buttonLabel}
           </Button>
         )}
@@ -71,6 +82,7 @@ const Banner = ({
         alt={title}
         fill
         priority
+        data-testid="image"
       />
     </div>
   );
