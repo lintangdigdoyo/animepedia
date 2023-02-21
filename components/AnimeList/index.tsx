@@ -64,9 +64,9 @@ const AnimeList = ({
       </div>
       {!isLoading ? (
         <Carousel innerRef={carouselRef} onSlideChange={handleSlideChange}>
-          {data?.data.map((anime) => (
+          {data?.data.map((anime, index) => (
             <SwiperSlide
-              key={anime.mal_id}
+              key={anime.mal_id + "-" + index}
               className={styleCarousel.carousel__item}
             >
               <AnimeItem
