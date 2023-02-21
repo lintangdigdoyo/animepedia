@@ -18,7 +18,7 @@ const Video = ({ youtubeId, title }: VideoProps) => {
         <iframe
           width="700"
           height="394"
-          src={`https://www.youtube.com/embed/${youtubeId}?enablejsapi=1&wmode=opaque`}
+          src={`https://www.youtube-nocookie.com/embed/${youtubeId}?wmode=opaque`}
           title={title}
           allowFullScreen
           loading="lazy"
