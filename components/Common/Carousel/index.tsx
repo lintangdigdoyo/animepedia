@@ -1,4 +1,4 @@
-import { Swiper, SwiperProps } from "swiper/react";
+import { Swiper, SwiperProps, SwiperRef } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,11 +8,13 @@ import style from "styles/components/Carousel.module.scss";
 
 interface CarouselProps extends SwiperProps {
   children: React.ReactNode;
+  innerRef: React.Ref<SwiperRef>;
 }
 
-const Carousel = ({ children, ...restProps }: CarouselProps) => {
+const Carousel = ({ children, innerRef, ...restProps }: CarouselProps) => {
   return (
     <Swiper
+      ref={innerRef}
       className={style.carousel}
       slidesPerView={1}
       spaceBetween={24}

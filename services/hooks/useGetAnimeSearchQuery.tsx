@@ -21,7 +21,7 @@ const useGetAnimeSearchQuery = (
     });
 
     queryClient.setQueryData<AnimeSearchResType | undefined>(
-      [QueryKeyEnum.ANIME, params],
+      [QueryKeyEnum.ANIME, params ?? {}],
       (prev) => {
         if (!prev || !res) return prev;
         return {
