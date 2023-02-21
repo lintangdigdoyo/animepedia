@@ -13,6 +13,10 @@
 
   &__textContainer {
     padding: 0 25%;
+
+    @media screen and (max-width: $breakpoints_max_lg) {
+      padding: 0 10%;
+    }
   }
 
   &__title {
