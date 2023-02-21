@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 
 import style from "styles/components/Detail.module.scss";
-import useGetAnimeFullByIdQuery from "services/hooks/useGetAnimeFullByIdQuery";
+import { useGetAnimeFullByIdQuery } from "services/hooks";
 import { QueryKeyEnum } from "services/types";
-import { getAnimeFullById } from "services/queries";
+import { getAnimeFullById, getAnimeStatistics } from "services/queries";
 import Banner from "components/Banner";
 import Section from "components/AnimeDetail/Section";
 import Video from "components/AnimeDetail/Video";
@@ -41,7 +41,7 @@ const AnimeDetail = () => {
         />
       </Section>
       <Section>
-        <AnimeStatistics />
+        <AnimeStatistics id={id} />
       </Section>
       <Section title="FEATURED CHARACTERS">
         <AnimeCharacters />
@@ -58,6 +58,10 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     await queryClient.fetchQuery([QueryKeyEnum.ANIME, id], () =>
       getAnimeFullById(id)
     );
+    await queryClient.fetchQuery([QueryKeyEnum.STATISTICS, id], () =>
+      getAnimeStatistics(id)
+    );
+
     return {
       props: {
         dehydratedState: dehydrate(queryClient),

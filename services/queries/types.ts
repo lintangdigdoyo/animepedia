@@ -88,6 +88,26 @@ export type AnimeFullByIdDataType = {
   streaming: Omit<AnimeInfoType, "mal_id" | "type">[];
 } & AnimeSearchDataType;
 
+export type AnimeStatisticsResType = {
+  data: AnimeStatisticsDataType;
+};
+
+export type AnimeStatisticsDataType = {
+  watching: number;
+  completed: number;
+  on_hold: number;
+  dropped: number;
+  plan_to_watch: number;
+  total: number;
+  scores: [
+    {
+      score: number;
+      votes: number;
+      percentage: number;
+    }
+  ];
+};
+
 export type ImagesType = {
   jpg: ImageListType;
   webp: ImageListType;
