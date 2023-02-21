@@ -1,15 +1,13 @@
 import style from "styles/components/Detail.module.scss";
 
-const AnimeContent = () => {
+interface AnimeContentProps {
+  content: string;
+}
+
+const AnimeContent = ({ content }: AnimeContentProps) => {
   return (
     <div className={style.detail__textContainer}>
-      <p className={style.detail__text}>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam
-        cupiditate at odit! Ipsa eveniet beatae quibusdam eius velit a soluta
-        voluptates blanditiis nulla dolor, minus laborum voluptate inventore
-        fugiat mollitia iusto rerum et? Vel deleniti earum quisquam eaque
-        dolorem rem fuga eum voluptates optio doloribus!
-      </p>
+      <p className={style.detail__text}>{content}</p>
     </div>
   );
 };

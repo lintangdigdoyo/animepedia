@@ -28,11 +28,11 @@ const AnimeDetail = () => {
         imgUrl={dataAnime?.data?.trailer.images.maximum_image_url ?? ""}
         isLoading={isLoading}
       />
-      <Section title="Synopsis">
-        <AnimeContent />
+      <Section title="SYNOPSIS">
+        <AnimeContent content={dataAnime?.data?.synopsis ?? ""} />
       </Section>
       <Section>
-        <StreamingPlatform />
+        <StreamingPlatform platforms={dataAnime?.data?.streaming ?? []} />
       </Section>
       <Section title="WATCH THE TRAILER">
         <Video title="trailer" youtubeId="" />
