@@ -14,7 +14,7 @@ const AnimeCharacters = ({ id }: AnimeCharactersProps) => {
 
   return (
     <div className={styleDetail.detail__container}>
-      {data?.data.map((item) => (
+      {data?.data.slice(0, 15).map((item) => (
         <div key={item.character.mal_id} className={styleCard.card}>
           <div className={styleCard.card__imageContainer}>
             <Image
