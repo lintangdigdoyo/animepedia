@@ -15,4 +15,10 @@ describe("Navbar component", () => {
     const navbar = screen.getByTestId("logo");
     expect(navbar).toHaveTextContent("AnimePedia");
   });
+
+  it("should contains correct href link", () => {
+    render(<Navbar />);
+    const navbar = screen.getByTestId("logo");
+    expect(navbar).toHaveAttribute("href", "/");
+  });
 });
