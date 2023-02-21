@@ -1,0 +1,31 @@
+import { useRef } from "react";
+
+import style from "styles/components/Detail.module.scss";
+import useOnScreen from "utils/hooks/useOnScreen";
+
+interface VideoProps {
+  youtubeId: string;
+  title: string;
+}
+
+const Video = ({ youtubeId, title }: VideoProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const onScreen = useOnScreen(ref, true);
+
+  return (
+    <div ref={ref} className={style.detail__container}>
+      {onScreen && (
+        <iframe
+          width="700"
+          height="394"
+          src={`https://www.youtube.com/embed/${youtubeId}?enablejsapi=1&wmode=opaque`}
+          title={title}
+          allowFullScreen
+          loading="lazy"
+        />
+      )}
+    </div>
+  );
+};
+
+export default Video;

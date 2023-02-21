@@ -8,7 +8,7 @@ import style from "styles/components/Carousel.module.scss";
 
 interface CarouselProps extends SwiperProps {
   children: React.ReactNode;
-  innerRef: React.Ref<SwiperRef>;
+  innerRef?: React.Ref<SwiperRef>;
 }
 
 const Carousel = ({ children, innerRef, ...restProps }: CarouselProps) => {

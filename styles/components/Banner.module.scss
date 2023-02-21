@@ -22,6 +22,10 @@
     width: 100%;
     height: 100%;
 
+    &_fullText {
+      padding-right: 50%;
+    }
+
     @media screen and (max-width: $breakpoints_max_lg) {
       padding-right: 25%;
     }
@@ -51,6 +55,10 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    &_fullText {
+      -webkit-line-clamp: revert;
+    }
   }
 
   &__skeleton {

@@ -74,9 +74,86 @@ export type AnimeSearchDataType = {
   title_synonyms: string[];
 };
 
+export type AnimeFullByIdResType = {
+  data: AnimeFullByIdDataType;
+};
+
+export type AnimeFullByIdDataType = {
+  relations: RelationsType[];
+  theme: {
+    openings: string[];
+    endings: string[];
+  };
+  external: Omit<AnimeInfoType, "mal_id" | "type">[];
+  streaming: Omit<AnimeInfoType, "mal_id" | "type">[];
+} & AnimeSearchDataType;
+
+export type AnimeStatisticsResType = {
+  data: AnimeStatisticsDataType;
+};
+
+export type AnimeStatisticsDataType = {
+  watching: number;
+  completed: number;
+  on_hold: number;
+  dropped: number;
+  plan_to_watch: number;
+  total: number;
+  scores: [
+    {
+      score: number;
+      votes: number;
+      percentage: number;
+    }
+  ];
+};
+
+export type AnimeCharactersResType = {
+  data: AnimeCharactersDataType[];
+};
+
+export type AnimeCharactersDataType = {
+  character: CharacterType;
+  role: string;
+  voice_actors: VoiceActorType[];
+};
+
+export type VoiceActorType = {
+  person: {
+    mal_id: number;
+    url: string;
+    images: {
+      jpg: {
+        image_url: string;
+      };
+    };
+    name: string;
+  };
+  language: string;
+};
+
+export type CharacterType = {
+  mal_id: number;
+  url: string;
+  images: ImagesType;
+  name: string;
+};
+
 export type ImagesType = {
   jpg: ImageListType;
   webp: ImageListType;
+};
+
+export type RelationsType = {
+  relation: string;
+  entry: EntryType[];
+};
+
+export type EntryType = {
+  mal_id: number;
+  type: string;
+  name: string;
+  url: string;
 };
 
 export type TrailerType = {
