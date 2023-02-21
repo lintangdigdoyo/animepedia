@@ -23,6 +23,7 @@ const AnimeCharacters = ({ id }: AnimeCharactersProps) => {
               alt={item.character.name}
               width={240}
               height={210}
+              data-testid={"image-" + item.character.mal_id}
             />
           </div>
           <div
@@ -32,8 +33,18 @@ const AnimeCharacters = ({ id }: AnimeCharactersProps) => {
               styleCard.card__content_fitContent
             )}
           >
-            <h5 className={styleCard.card__title}>{item.character.name}</h5>
-            <span className={styleCard.card__text}>{item.role}</span>
+            <h5
+              className={styleCard.card__title}
+              data-testid={"name-" + item.character.mal_id}
+            >
+              {item.character.name}
+            </h5>
+            <span
+              className={styleCard.card__text}
+              data-testid={"role-" + item.character.mal_id}
+            >
+              {item.role}
+            </span>
           </div>
         </div>
       ))}

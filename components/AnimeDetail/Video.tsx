@@ -16,6 +16,7 @@ const Video = ({ youtubeId, title }: VideoProps) => {
     <div ref={ref} className={style.detail__container}>
       {onScreen && (
         <iframe
+          data-testid="iframe-video"
           width="700"
           height="394"
           src={`https://www.youtube-nocookie.com/embed/${youtubeId}?wmode=opaque`}

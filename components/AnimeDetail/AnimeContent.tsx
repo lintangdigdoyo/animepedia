@@ -7,7 +7,9 @@ interface AnimeContentProps {
 const AnimeContent = ({ content }: AnimeContentProps) => {
   return (
     <div className={style.detail__textContainer}>
-      <p className={style.detail__text}>{content}</p>
+      <p className={style.detail__text} data-testid="content">
+        {content}
+      </p>
     </div>
   );
 };

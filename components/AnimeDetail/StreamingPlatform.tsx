@@ -14,14 +14,15 @@ const StreamingPlatform = ({ platforms }: StreamingPlatformProps) => {
   };
 
   return (
-    <div className={style.detail__container}>
+    <div className={style.detail__container} data-testid="platform-container">
       {platforms.map((platform, index) => (
         <Button
           key={index}
           onClick={() => handleClick(platform.url)}
           variant="outlined"
+          data-testid="platform-button"
         >
-          <BsPlay />
+          <BsPlay data-testid="icon" />
           {platform.name}
         </Button>
       ))}

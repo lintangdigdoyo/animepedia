@@ -11,9 +11,9 @@ const Statistic = ({ title, text }: StatisticsProps) => {
   return (
     <>
       <div className={style.detail__pill}>
-        <span>{title}</span>
-        <span className={style.detail__icon}>
-          <BsEyeFill /> {text}
+        <span data-testid="title">{title}</span>
+        <span className={style.detail__icon} data-testid="content">
+          <BsEyeFill data-testid="icon" /> {text}
         </span>
       </div>
     </>
