@@ -74,9 +74,35 @@ export type AnimeSearchDataType = {
   title_synonyms: string[];
 };
 
+export type AnimeFullByIdResType = {
+  data: AnimeFullByIdDataType;
+};
+
+export type AnimeFullByIdDataType = {
+  relations: RelationsType[];
+  theme: {
+    openings: string[];
+    endings: string[];
+  };
+  external: Omit<AnimeInfoType, "mal_id" | "type">[];
+  streaming: Omit<AnimeInfoType, "mal_id" | "type">[];
+} & AnimeSearchDataType;
+
 export type ImagesType = {
   jpg: ImageListType;
   webp: ImageListType;
+};
+
+export type RelationsType = {
+  relation: string;
+  entry: EntryType[];
+};
+
+export type EntryType = {
+  mal_id: number;
+  type: string;
+  name: string;
+  url: string;
 };
 
 export type TrailerType = {

@@ -8,8 +8,8 @@ import { AnimeInfoType } from "services/queries/types";
 interface BannerProps {
   title: string;
   genres: AnimeInfoType[];
-  description: string;
   imgUrl: string;
+  description?: string;
   buttonLabel?: string;
   isLoading?: boolean;
   fullText?: boolean;
@@ -50,13 +50,15 @@ const Banner = ({
             </span>
           ))}
         </div>
-        <p
-          className={classNames(style.banner__description, {
-            [style.banner__description_fullText]: fullText,
-          })}
-        >
-          {description}
-        </p>
+        {description && (
+          <p
+            className={classNames(style.banner__description, {
+              [style.banner__description_fullText]: fullText,
+            })}
+          >
+            {description}
+          </p>
+        )}
         {onClick && (
           <Button variant="outlined" onClick={onClick}>
             {buttonLabel}
