@@ -6,19 +6,19 @@ import Navbar from "..";
 describe("Navbar component", () => {
   it("should renders logo", () => {
     render(<Navbar />);
-    const navbar = screen.getByTestId("logo");
-    expect(navbar).toBeInTheDocument();
+    const logo = screen.getByTestId("logo");
+    expect(logo).toBeInTheDocument();
   });
 
   it("should contains text AnimePedia", () => {
     render(<Navbar />);
-    const navbar = screen.getByTestId("logo");
-    expect(navbar).toHaveTextContent("AnimePedia");
+    const logo = screen.getByTestId("logo");
+    expect(logo).toHaveTextContent("AnimePedia");
   });
 
   it("should contains correct href link", () => {
     render(<Navbar />);
-    const navbar = screen.getByTestId("logo");
-    expect(navbar).toHaveAttribute("href", "/");
+    const logo = screen.getByTestId("logo");
+    expect(logo).toHaveAttribute("href", "/");
   });
 });
