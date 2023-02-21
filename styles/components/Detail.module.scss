@@ -1,0 +1,56 @@
+@import "../utils/variables";
+
+.detail {
+  padding: 16px 16px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+
+  &__section {
+    padding: 18px;
+    border-radius: 4px;
+  }
+
+  &__textContainer {
+    padding: 0 25%;
+  }
+
+  &__title {
+    @include typographyBuilder(primary, 700, 18);
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  
+  &__text {
+    @include typographyBuilder();
+    text-align: center;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 36px;
+  }
+
+  &__pill {
+    @include typographyBuilder(primary, 500, 14);
+    border: 2px solid $color_primary;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    flex-direction: column;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    gap: 8px;
+  }
+}
