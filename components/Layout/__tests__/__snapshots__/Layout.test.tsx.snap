@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout component should renders layout correctly 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <nav
+      class="nav"
+    >
+      <ul
+        class="nav__list"
+      >
+        <li>
+          <a
+            class="nav__logo"
+            data-testid="logo"
+            href="/"
+          >
+            AnimePedia
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    children
+  </main>
+  <footer
+    class="layout__footer"
+  >
+    © 2023 Made by Lintang Digdoyo
+  </footer>
+</div>
+`;
