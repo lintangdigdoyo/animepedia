@@ -108,6 +108,37 @@ export type AnimeStatisticsDataType = {
   ];
 };
 
+export type AnimeCharactersResType = {
+  data: AnimeCharactersDataType[];
+};
+
+export type AnimeCharactersDataType = {
+  character: CharacterType;
+  role: string;
+  voice_actors: VoiceActorType[];
+};
+
+export type VoiceActorType = {
+  person: {
+    mal_id: number;
+    url: string;
+    images: {
+      jpg: {
+        image_url: string;
+      };
+    };
+    name: string;
+  };
+  language: string;
+};
+
+export type CharacterType = {
+  mal_id: number;
+  url: string;
+  images: ImagesType;
+  name: string;
+};
+
 export type ImagesType = {
   jpg: ImageListType;
   webp: ImageListType;

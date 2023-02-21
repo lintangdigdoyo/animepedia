@@ -44,7 +44,7 @@ const AnimeDetail = () => {
         <AnimeStatistics id={id} />
       </Section>
       <Section title="FEATURED CHARACTERS">
-        <AnimeCharacters />
+        <AnimeCharacters id={id} />
       </Section>
     </article>
   );
