@@ -22,7 +22,7 @@ const AnimeItem = ({
   imgUrl,
 }: AnimeItemProps) => {
   return (
-    <Link href={`/anime/${id}`}>
+    <Link href={`/anime/${id}`} data-testid="anime-link">
       <div className={classNames(style.card, style.card_scale)}>
         <div className={style.card__imageContainer}>
           <Image
@@ -31,14 +31,23 @@ const AnimeItem = ({
             alt={title}
             sizes="240px"
             fill
+            data-testid="card-image"
           />
         </div>
         <div className={style.card__content}>
-          <h5 className={style.card__title}>{title}</h5>
-          <p className={style.card__description}>{description}</p>
+          <h5 className={style.card__title} data-testid="card-title">
+            {title}
+          </h5>
+          <p className={style.card__description} data-testid="card-description">
+            {description}
+          </p>
           <div className={style.card__row}>
-            <span className={style.card__pill}>{rating}</span>
-            <span className={style.card__text}>{date}</span>
+            <span className={style.card__pill} data-testid="card-rating">
+              {rating}
+            </span>
+            <span className={style.card__text} data-testid="card-date">
+              {date}
+            </span>
           </div>
         </div>
       </div>

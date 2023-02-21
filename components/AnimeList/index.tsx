@@ -51,7 +51,9 @@ const AnimeList = ({
   return (
     <section className={styleList.list}>
       <div className={styleList.list__header}>
-        <h4 className={styleList.list__title}>{title}</h4>
+        <h4 className={styleList.list__title} data-testid="title">
+          {title}
+        </h4>
         <div className={styleList.list__search}>
           <input
             className={styleInput.input}
@@ -59,6 +61,7 @@ const AnimeList = ({
             name="search"
             placeholder={searchPlaceholder}
             onChange={debounce(handleSearchChange, 800)}
+            data-testid="search"
           />
         </div>
       </div>
