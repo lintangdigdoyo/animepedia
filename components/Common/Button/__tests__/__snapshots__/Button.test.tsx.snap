@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should renders button correctly 1`] = `
+<div>
+  <button
+    class="button"
+  >
+    children
+  </button>
+</div>
+`;
+
+exports[`Button component should renders button with contained variant 1`] = `
+<div>
+  <button
+    class="button"
+  >
+    children
+  </button>
+</div>
+`;
+
+exports[`Button component should renders button with outlined variant 1`] = `
+<div>
+  <button
+    class="button button__outlined"
+  >
+    children
+  </button>
+</div>
+`;
