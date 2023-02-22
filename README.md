@@ -5,7 +5,7 @@
 - [Next.js version 13](https://nextjs.org/)
 - [Typescript version 4](https://www.typescriptlang.org/)
 - [SASS](https://sass-lang.com/)
-- [React Query](https://tanstack.com/query/v3/docs/react/overview)
+- [React Query](https://tanstack.com/query/latest/docs/react/overview)
 - [Axios](https://axios-http.com/docs/intro)
 - [Jest](https://jestjs.io/)
 - [React-testing-library](https://testing-library.com/docs/react-testing-library/intro/)
@@ -22,5 +22,5 @@
 - `npm run test` — Run unit test
 - `npm run test-watch` — Run unit test in watch mode
 
-### App demo 
+### App demo
 https://beamish-cannoli-bd75ae.netlify.app
