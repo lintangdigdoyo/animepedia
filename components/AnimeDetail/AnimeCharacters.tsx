@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import styleCard from "styles/components/Card.module.scss";
 import styleDetail from "styles/components/Detail.module.scss";
-import useGetAnimeCharactersQuery from "services/hooks/useGetAnimeCharactersQuery";
+import { useGetAnimeCharactersQuery } from "services/hooks";
 
 interface AnimeCharactersProps {
   id: string;
