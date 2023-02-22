@@ -19,4 +19,8 @@
     @include typographyBuilder();
     text-align: center;
   }
+
+  @media screen and (max-width: $breakpoints_max_md) {
+    padding: 48px 15px;
+  }
 }
