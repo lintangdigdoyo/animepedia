@@ -1,6 +1,6 @@
 # About AnimePedia
 
-AnimePedia is a web app that displays a list of anime and provides a convenient platform for users to view, search and see the details of each anime in the list. The main aim of the design and interaction is to help users easily navigate and use the app, and also provide a familiar experience by creating a UI that looks like most popular streaming platforms. By doing so, users will be able to easily navigate and access the content they want without having to spend time adjusting to a new interface.
+AnimePedia is a web app that displays a list of anime and provides a convenient platform for users to view, search and see the details of each anime in the list. The main aim of the design and interaction is to help users easily navigate and use the app, and also provide a familiar experience by providing a UI that looks like most popular streaming platforms. By doing so, users will be able to easily navigate and access the content they want without having to spend time adjusting to a new interface.
 
 ## Search by categories
 Besides searching all of the anime in the list, AnimePedia allows users to search anime based on the category (Tv series), providing a more efficient way of finding the anime that fits their preferences.
@@ -9,7 +9,7 @@ Besides searching all of the anime in the list, AnimePedia allows users to searc
 To improve the user experience this app implements slider pagination, which provides a visually appealing way for users to navigate through the list of anime. This slider pagination only fetches the required data, making the app fast and efficient.
 
 ## Caching
-This app takes advantage of the React Query's powerful caching mechanism. It reduces the need for subsequent requests to the server for the same data. This results in a faster and more efficient app, as well as an improved user experience as the app does not need to wait for data to be fetched from the server each time the user navigates.
+This app takes advantage of the React Query's caching mechanism. It reduces the need for subsequent requests to the server for the same data. This results in a faster and more efficient app, as well as an improved user experience as the app does not need to wait for data to be fetched from the server each time the user navigates.
 
 The use of React Query caching also means that when a user searches for an anime, the app will not make a request for the same input again. Instead, it will retrieve the data from the cache.
 
