@@ -17,7 +17,7 @@
 
 ## Scripts
 - `npm run dev` — Launches the app in development mode on [http://localhost:3000](http://localhost:3000/)
-- `npm run build` — Compiles and bundles the app for deployment `(NOTE: please copy env in .env.development and then create + copy to .env.production.local first)`
+- `npm run build` — Compiles and bundles the app for deployment `(NOTE: please copy env in .env.development and then create + paste to .env.production.local first)`
 - `npm start` — Start the production server
 - `npm run test` — Run unit test
 - `npm run test-watch` — Run unit test in watch mode
