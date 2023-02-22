@@ -41,6 +41,7 @@ const AnimeDetail = () => {
           <Video
             title={dataAnime?.data?.titles[0].title ?? "trailer"}
             youtubeId={dataAnime?.data?.trailer.youtube_id ?? ""}
+            lazy
           />
         </Section>
       )}

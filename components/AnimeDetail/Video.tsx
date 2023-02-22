@@ -6,15 +6,16 @@ import useOnScreen from "utils/hooks/useOnScreen";
 interface VideoProps {
   youtubeId: string;
   title: string;
+  lazy?: boolean;
 }
 
-const Video = ({ youtubeId, title }: VideoProps) => {
+const Video = ({ youtubeId, title, lazy = false }: VideoProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const onScreen = useOnScreen(ref, true);
 
   return (
     <div ref={ref} className={style.detail__container}>
-      {onScreen && (
+      {(onScreen || !lazy) && (
         <iframe
           data-testid="iframe-video"
           width="700"
