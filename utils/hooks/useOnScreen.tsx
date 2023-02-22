@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 
+//detect when an element is visible on the screen
 const useOnScreen = <T extends Element | null>(
   ref: React.MutableRefObject<T>,
   triggerOnce = false,
